@@ -80,6 +80,7 @@ def all_supplies_in_holidays(holiday_hash)
         arr_text = arr.join(" ")
       else
         arr_text = holiday.capitalize
+      end
       puts "  #{arr_text}: #{supply_array}"
     end
   end
