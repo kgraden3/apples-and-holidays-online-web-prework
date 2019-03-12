@@ -78,6 +78,8 @@ def all_supplies_in_holidays(holiday_hash)
         arr = holiday.split("_")
         arr_caps = arr.capitalize
         arr_text = arr.join(" ")
+      else
+        arr_text = holiday.capitalize
       puts "  #{arr_text}: #{supply_array}"
     end
   end
