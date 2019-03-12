@@ -64,14 +64,8 @@ def all_supplies_in_holidays(holiday_hash)
     puts "#{season.capitalize}:"
     data.each do |holiday, supply|
       supply_array = supply.join(", ")
-      if holiday.include?("_")
-        arr = holiday.split("_")
-        arr_caps = arr.capitalize
-        arr_text = arr.join(" ")
-      else
-        arr_text = holiday.capitalize
-      end
-      puts "  #{arr_text}: #{supply_array}"
+      holiday = holiday.to_s.split("_").map {|word| word.capitalize}.join(" ")
+      puts "  #{holiday}: #{supply_array}"
     end
   end
 end
@@ -81,7 +75,7 @@ def all_holidays_with_bbq(holiday_hash)
   # include the string "BBQ"
   bbq_array = [];
   holiday_hash.each do |season, data|
-    data.collect do |holiday, supply|
+    data.each do |holiday, supply|
       if supply.include?("BBQ")
         bbq_array << holiday
       end
